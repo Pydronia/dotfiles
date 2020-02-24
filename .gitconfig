@@ -1,0 +1,11 @@
+[user]
+	email = jackscmail@gmail.com
+	name = Pydronia
+[push]
+	default = simple
+[credential]
+	helper = osxkeychain
+[core]
+	excludesfile = /Users/jack/.gitignore_global
+[commit]
+	template = /Users/jack/.stCommitMsg
