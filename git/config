@@ -1,0 +1,8 @@
+[user]
+	name = Pydronia
+	email = jackscmail@gmail.com
+[core]
+	editor = nvim
+	excludesfile = /Users/jack/.config/git/.gitignore_global
+[init]
+	defaultBranch = main
