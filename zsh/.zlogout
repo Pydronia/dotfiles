@@ -1,1 +1,1 @@
-/Users/jack/.config/zsh/.zprezto/runcoms/zlogout
+.zprezto/runcoms/zlogout

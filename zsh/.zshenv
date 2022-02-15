@@ -1,1 +1,1 @@
-/Users/jack/.config/zsh/.zprezto/runcoms/zshenv
+.zprezto/runcoms/zshenv
