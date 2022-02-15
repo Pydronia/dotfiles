@@ -1,0 +1,1 @@
+/Users/jack/.config/zsh/.zprezto/runcoms/zshenv
