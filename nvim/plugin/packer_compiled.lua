@@ -84,16 +84,31 @@ _G.packer_plugins = {
     path = "/Users/jack/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
-  ["nvim-cmp"] = {
-    config = { "require('config/cmp')" },
+  ["indent-blankline.nvim"] = {
+    config = { "require('config/indentguide')" },
     loaded = true,
-    path = "/Users/jack/.local/share/nvim/site/pack/packer/start/nvim-cmp",
-    url = "https://github.com/hrsh7th/nvim-cmp"
+    path = "/Users/jack/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  ["nvim-autopairs"] = {
+    config = { "require('config/autopairs')" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/Users/jack/.local/share/nvim/site/pack/packer/opt/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
+  },
+  ["nvim-cmp"] = {
+    after = { "nvim-autopairs" },
+    loaded = true,
+    only_config = true
   },
   ["nvim-lspconfig"] = {
     config = { "require('config/lsp')" },
+    load_after = {},
     loaded = true,
-    path = "/Users/jack/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    needs_bufread = false,
+    path = "/Users/jack/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-solarized-lua"] = {
@@ -121,22 +136,36 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: indent-blankline.nvim
+time([[Config for indent-blankline.nvim]], true)
+require('config/indentguide')
+time([[Config for indent-blankline.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
 require('config/treesitter')
 time([[Config for nvim-treesitter]], false)
--- Config for: nvim-solarized-lua
-time([[Config for nvim-solarized-lua]], true)
-require('config/colorscheme')
-time([[Config for nvim-solarized-lua]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require('config/lsp')
-time([[Config for nvim-lspconfig]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require('config/cmp')
 time([[Config for nvim-cmp]], false)
+-- Config for: nvim-solarized-lua
+time([[Config for nvim-solarized-lua]], true)
+require('config/colorscheme')
+time([[Config for nvim-solarized-lua]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd cmp-nvim-lsp ]]
+vim.cmd [[ packadd nvim-lspconfig ]]
+
+-- Config for: nvim-lspconfig
+require('config/lsp')
+
+vim.cmd [[ packadd nvim-autopairs ]]
+
+-- Config for: nvim-autopairs
+require('config/autopairs')
+
+time([[Sequenced loading]], false)
 if should_profile then save_profiles() end
 
 end)

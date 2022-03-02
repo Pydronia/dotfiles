@@ -25,6 +25,7 @@ require("packer").startup({function()
 
 	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = getSetup("treesitter") }
 	use { "ishan9299/nvim-solarized-lua", config = getSetup("colorscheme") }
+	use { "lukas-reineke/indent-blankline.nvim", config = getSetup("indentguide") }
 
 	use {
 		"hrsh7th/nvim-cmp",
@@ -37,7 +38,9 @@ require("packer").startup({function()
 		config = getSetup("cmp")
 	}
 
-	use { "neovim/nvim-lspconfig", requires = "hrsh7th/cmp-nvim-lsp", config = getSetup("lsp") }
+	use { "windwp/nvim-autopairs", after = "nvim-cmp", config = getSetup("autopairs") }
+
+	use { "neovim/nvim-lspconfig", after = "cmp-nvim-lsp", config = getSetup("lsp") }
 
 	-- Automatically set up configuration after cloning packer.nvim
 	if packer_bootstrap then

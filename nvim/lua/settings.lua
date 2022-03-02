@@ -8,3 +8,9 @@ vim.cmd("filetype plugin indent on")
 -- Line Numbers
 opt.number = true
 opt.relativenumber = true
+
+-- Word wrap
+opt.breakindent = true
+opt.linebreak = true
+opt.breakindentopt = "sbr,shift:3"
+opt.showbreak = ">> "
