@@ -1,7 +1,5 @@
 # Taps
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
 
 # General
 brew "git"

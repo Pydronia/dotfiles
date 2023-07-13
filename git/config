@@ -10,3 +10,5 @@
 	submoduleSummary = true
 [pull]
 	rebase = false
+[credential]
+	helper = osxkeychain
